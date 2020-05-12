@@ -21,7 +21,7 @@ The `host_info` table is only added once during startup by each node as hardware
 * `cpu_architecture`: x32 or x64 CPU architecture
 * `cpu_model`: Make and Model of CPU
 * `cpu_mhz`: CPU speed
-* `L2_cache`: L2 cache siz (kB)
+* `L2_cache`: L2 cache size (kB)
 * `total_mem`: Total Memory in System (kB)
 * `timestamp`: UTC timestamp of when specifications were collected by node
 
