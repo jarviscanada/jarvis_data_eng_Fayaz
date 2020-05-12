@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cluster Monitor Agent is an internal tool that monitors the cluster resources by tracking diagnostic information. This helps the infrastructure team to record the hardware specifications of each node and monitor node resource usages (e.g. CPU/Memory). This is all done through the use of Docker along with a PostgreSql database which is hosted on one of the nodes. The database is then updated with the use of bash agents from each node.
+Cluster Monitor Agent is an internal tool that monitors the cluster resources by tracking diagnostic information. This helps the infrastructure team to record the hardware specifications of each node and monitor node resource usages (e.g. CPU/Memory). This is all done through the use of Docker along with a PostgreSQL database which is hosted on one of the nodes. The database is then updated with the use of bash agents from each node.
 
 ## Architecture and Design
 ![](cluster_diagram.png)
@@ -67,7 +67,7 @@ This script inserts the current resource usage from each note into the `host_usa
 ./linux_sql/scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 ### 4) Crontab Setup
-Crontab allows the `host_usage.sh` script to be run at a certain interval. The current setup runs every minute. This can be changed by modifying `* * * * *` potion of code below
+Crontab allows the `host_usage.sh` script to be run at a certain interval. The current setup runs every minute. This can be changed by modifying `* * * * *` portion of code below
 
 ```bash
 # Edit Crontab jobs
