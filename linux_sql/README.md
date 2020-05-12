@@ -67,7 +67,7 @@ This script inserts the current resource usage from each note into the `host_usa
 ./linux_sql/scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 ### 4) Crontab Setup
-Crontab allows the `host_usage.sh` script to be run at a certain interval. The current setup to run every minute. This can be changed by modifying `* * * * *` potion of code below
+Crontab allows the `host_usage.sh` script to be run at a certain interval. The current setup runs every minute. This can be changed by modifying `* * * * *` potion of code below
 
 ```bash
 # Edit Crontab jobs
