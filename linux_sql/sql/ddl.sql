@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info
 -- DML
 -- INSERT statement sample values into host_info table
 INSERT INTO host_info (id, hostname,cpu_number,cpu_architecture,cpu_model,cpu_mhz,L2_cache,total_mem,"timestamp")
-    values(2,'pry-framework-236416.internal',1,'x86_64','Intel(R) Xeon(R) CPU @ 2.30GHz',2300.000,256,601324,'2019-05-29 17:49:53');
+    values(1,'pry-framework-236416.internal',1,'x86_64','Intel(R) Xeon(R) CPU @ 2.30GHz',2300.000,256,601324,'2019-05-29 17:49:53');
 
 -- HOST USAGE TABLE
 -- DDL
