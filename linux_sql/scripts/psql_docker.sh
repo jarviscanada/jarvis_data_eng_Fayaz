@@ -11,7 +11,6 @@ then
   echo "Docker is Active"
 fi
 
-
 #Create Container Clause
 if [ $action = "create" ]; then
   #Check if Container is Already in Use
@@ -24,17 +23,16 @@ if [ $action = "create" ]; then
     echo "Error: Please fill username and password correctly"
     exit 1
   fi
+  # Check if container created
+  if [ `docker container ls -a -f name=jrvs-psql | wc -l` == 1 ]; then
+      echo "Error: Container was not created: Please Create a Container"
+      exit 1
+  fi
   #Create Volume and Container
   docker volume create pgdata
   docker run --name jrvs-psql -e POSTGRES_PASSWORD=${db_password} -e POSTGRES_USER=${db_username} -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
   echo "Container was successfully created!"
   exit $?
-fi
-
-# Check if container created
-if [ `docker container ls -a -f name=jrvs-psql | wc -l` == 1 ]; then
-    echo "Error: Container was not created: Please Create a Container"
-    exit 1
 fi
 
 #Start Container
@@ -49,8 +47,6 @@ if [ $action = "stop" ]; then
   exit $?
 fi
 
-# If argument is invalid
-if  [ $action != "start" ] || [ $action != "stop" ]; then
-  echo "Error: You must enter start or stop in argument"
-  exit 1
-fi
+# Argument is Invalid
+echo "Error: You must enter create, start or stop in argument"
+exit 1
