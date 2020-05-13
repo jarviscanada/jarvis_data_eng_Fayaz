@@ -45,7 +45,7 @@ The `host_usage` table is only is added every minute by each node. This is to mo
 
 
 ## Usage
-### 1) Database and Tables Initialization
+### Database and Tables Initialization
 Once a PostgreSQL instance has been created, the Docker container needs to be started using `psql_docker.sh`.`ddl.sql` is then run to initialize the database along with the two tables.
 ```bash
 # Provision and start a PostgreSQL instance with docker
@@ -54,19 +54,19 @@ Once a PostgreSQL instance has been created, the Docker container needs to be st
 # Initalize database and two tables
 psql -h psql_host -U psql_user -W -f linux_sql/sql/ddl.sql
 ```
-### 2) `host_info.sh` Usage
+### `host_info.sh` Usage
 This script will only be run once per node to store hardware specs into the `host_info` table.
 ```bash
 #Insert hardware specs of node into `host_info` table
 ./linux_sql/scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 ```
-### 3) `host_usage.sh` Usage
+### `host_usage.sh` Usage
 This script inserts the current resource usage from each note into the `host_usage` table. To have this script run automatically, please see crontab setup below.
 ```bash
 #Insert resource usage into `host_usage` table
 ./linux_sql/scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
-### 4) Crontab Setup
+### Crontab Setup
 Crontab allows the `host_usage.sh` script to be run at a certain interval. The current setup runs every minute. This can be changed by modifying `* * * * *` portion of code below
 
 ```bash
