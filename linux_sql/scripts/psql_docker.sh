@@ -24,8 +24,8 @@ if [ $action = "create" ]; then
     exit 1
   fi
   # Check if container created
-  if [ `docker container ls -a -f name=jrvs-psql | wc -l` == 1 ]; then
-      echo "Error: Container was not created: Please Create a Container"
+  if [ `docker container ls -a -f name=jrvs-psql | wc -l` == 2 ]; then
+      echo "Error: Container already created"
       exit 1
   fi
   #Create Volume and Container
